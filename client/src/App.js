@@ -15,7 +15,6 @@ function App() {
   const [fetchError, setFetchError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
-  // 🔥 Fetch Items
   useEffect(() => {
     const fetchItems = async () => {
       try {
@@ -34,7 +33,6 @@ function App() {
     fetchItems();
   }, [API_URL]);
 
-  // 🔥 ADD ITEM (Backend creates id)
   const addItem = async (item) => {
     const addNewItem = { checked: false, item };
 
@@ -50,13 +48,11 @@ function App() {
       return;
     }
 
-    // fetch fresh list (keeps ids correct)
     const response = await fetch(API_URL);
     const listItems = await response.json();
     setItems(listItems);
   };
 
-  // 🔥 CHECK ITEM
   const handleCheck = async (id) => {
     const listItems = items.map((item) =>
       item.id === id ? { ...item, checked: !item.checked } : item,
@@ -77,7 +73,6 @@ function App() {
     if (result) setFetchError(result);
   };
 
-  // 🔥 DELETE ITEM
   const handleDelete = async (id) => {
     const listItems = items.filter((item) => item.id !== id);
     setItems(listItems);
@@ -89,7 +84,6 @@ function App() {
     if (result) setFetchError(result);
   };
 
-  // 🔥 FORM SUBMIT
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!newItem) return;
