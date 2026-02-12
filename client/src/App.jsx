@@ -7,7 +7,7 @@ import SearchItems from "./SearchItems";
 import apiRequest from "./apiRequest";
 
 function App() {
-  const API_URL = process.env.REACT_APP_API_URL;
+  const API_URL = import.meta.env.VITE_API_URL;
 
   const [items, setItems] = useState([]);
   const [newItem, setNewItem] = useState("");
