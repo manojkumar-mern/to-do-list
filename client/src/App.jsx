@@ -43,14 +43,15 @@ function App() {
     };
 
     const result = await apiRequest(API_URL, postOptions);
+
     if (result) {
       setFetchError(result);
       return;
     }
 
     const response = await fetch(API_URL);
-    const listItems = await response.json();
-    setItems(listItems);
+    const data = await response.json();
+    setItems(data);
   };
 
   const handleCheck = async (id) => {
