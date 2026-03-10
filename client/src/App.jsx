@@ -90,6 +90,8 @@ function App() {
     if (!newItem) return;
     addItem(newItem);
     setNewItem("");
+
+    inputRef.current.focus();
   };
 
   return (
