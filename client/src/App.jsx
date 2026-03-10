@@ -31,7 +31,7 @@ function App() {
     };
 
     fetchItems();
-  }, [API_URL]);
+  }, []);
 
   const addItem = async (item) => {
     const addNewItem = { checked: false, item };
